@@ -1,0 +1,60 @@
+# Binário e builds
+bin/
+obj/
+*.exe
+*.dll
+
+# Cache do VS
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Debug
+*.pdb
+*.cache
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# Sistema
+Thumbs.db
+Desktop.ini
+
+# Arquivos do Playwright
+**/ms-playwright/**
+
+# Arquivos temporários de planilha
+~$*
+
+# Planilhas geradas
+respostasGeradas*.xlsx
+
+# Dados sensíveis
+appsettings.json
+key.env
+
+# Pacotes
+*.nupkg
+*.snupkg
+
+# Arquivos do Rider/JetBrains
+.idea/
+*.sln.iml
+
+# Arquivos NuGet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Backup VS Code
+.history/
+
+# Outros
+*.vsidx
+*.db
+*.db-shm
+*.db-wal
