@@ -14,20 +14,42 @@ Este projeto automatiza a geração de comentários técnicos e profissionais no
 
 ## 🔐 Configuração (`appsettings.json`)
 
-Crie este arquivo na raiz do projeto (e **não envie ao Git!**):
+Crie um arquivo chamado `appsettings.json` na mesma pasta do executável (ou na raiz do projeto) com o seguinte conteúdo:
 
 ```json
 {
   "OpenAI": {
     "ApiKey": "sk-sua-chave-aqui",
-    "Model": "gpt-3.5-turbo", // ou "gpt-4" se quiser mais qualidade, com maior custo
+    "Model": "gpt-3.5-turbo",
+    "SystemPrompt": "...",
+    "UserPrompt": "..."
+  }
+}
+```
+
+### O que inserir em cada campo:
+
+| Campo          | Descrição                                                                                            |
+| -------------- | ---------------------------------------------------------------------------------------------------- |
+| `ApiKey`       | Sua chave da API da OpenAI, encontrada em [https://platform.openai.com](https://platform.openai.com) |
+| `Model`        | Modelo a ser utilizado (`gpt-3.5-turbo` recomendado, `gpt-4` é mais caro)                            |
+| `SystemPrompt` | Mensagem que define o seu perfil técnico como engenheiro de software                                 |
+| `UserPrompt`   | Instrução para gerar o comentário com base no conteúdo do post                                       |
+
+### Exemplo completo:
+
+```json
+{
+  "OpenAI": {
+    "ApiKey": "sk-abc123...",
+    "Model": "gpt-3.5-turbo",
     "SystemPrompt": "You are a full stack software engineer with 4+ years of experience in .NET, 2+ years with React, and solid practice with Flutter in personal projects. You’ve built scalable APIs, worked with microservices, and applied clean architecture and clean code principles. Your comments are clear, respectful and add technical value.",
     "UserPrompt": "This is the content of the LinkedIn post. Generate a short and professional comment in English (B2 level). Make it valuable to the author, technically relevant, and friendly — something that encourages professional conversation."
   }
 }
 ```
 
-> ⚠️ **Não envie esse arquivo para o repositório público.** Ele contém sua chave da OpenAI.
+> ⚠️ **Nunca envie esse arquivo para repositórios públicos!** Ele contém sua chave pessoal da OpenAI.
 
 ---
 
