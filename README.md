@@ -58,10 +58,12 @@ Crie um arquivo chamado `appsettings.json` na mesma pasta do executável (ou na 
 Crie um arquivo chamado `linksWithPosts.xlsx` na pasta de execução APENAS com o link dos posts na coluna A, um abaixo do outro, conforme a estrutura abaixo:
 
 ```
-|        A1                          |
-| https://www.linkedin.com/posts/abc |
-| https://www.linkedin.com/posts/def |
-| https://www.linkedin.com/posts/ghi |
+    A
+  -------
+1 | Link
+2 | https://www.linkedin.com/posts/abc
+3 | https://www.linkedin.com/posts/def
+4 | https://www.linkedin.com/posts/ghi
 ```
 
 ---
@@ -82,7 +84,7 @@ Crie um arquivo chamado `linksWithPosts.xlsx` na pasta de execução APENAS com 
 ```bash
 git clone https://github.com/isaias99i/LinkedIn_Reply_Generator.git
 cd LinkedIn_Reply_Generator
-```
+````
 
 2. Restaure pacotes:
 
