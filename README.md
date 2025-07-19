@@ -60,10 +60,9 @@ Crie um arquivo chamado `linksWithPosts.xlsx` na pasta de execução APENAS com 
 ```
     A
   -------
-1 | Link
-2 | https://www.linkedin.com/posts/abc
-3 | https://www.linkedin.com/posts/def
-4 | https://www.linkedin.com/posts/ghi
+1 | https://www.linkedin.com/posts/abc
+2 | https://www.linkedin.com/posts/def
+3 | https://www.linkedin.com/posts/ghi
 ```
 
 ---
