@@ -4,6 +4,41 @@ Este projeto automatiza a geração de comentários técnicos e profissionais no
 
 ---
 
+### 📥 Download direto
+
+👉 [Clique aqui para baixar o executável do LinkedIn Reply Generator](https://github.com/isaias99i/LinkedIn_Reply_Generator/releases/download/v1.0.0/publish.zip)
+
+> Inclua manualmente o `appsettings.json` e a planilha `linksWithPosts.xlsx` para funcionamento completo.
+
+---
+
+## 🔐 Configuração (`appsettings.json`)
+
+Crie este arquivo na raiz do projeto (e **não envie ao Git!**):
+
+```json
+{
+  "OpenAI": {
+    "ApiKey": "sk-sua-chave-aqui",
+    "Model": "gpt-3.5-turbo", // ou "gpt-4" se quiser mais qualidade, com maior custo
+    "SystemPrompt": "You are a full stack software engineer with 4+ years of experience in .NET, 2+ years with React, and solid practice with Flutter in personal projects. You’ve built scalable APIs, worked with microservices, and applied clean architecture and clean code principles. Your comments are clear, respectful and add technical value.",
+    "UserPrompt": "This is the content of the LinkedIn post. Generate a short and professional comment in English (B2 level). Make it valuable to the author, technically relevant, and friendly — something that encourages professional conversation."
+  }
+}
+```
+
+> ⚠️ **Não envie esse arquivo para o repositório público.** Ele contém sua chave da OpenAI.
+
+---
+
+## 📁 Estrutura da planilha de entrada
+
+Crie um arquivo chamado `linksWithPosts.xlsx` na pasta de execução APENAS com o link dos posts na coluna A, um abaixo do outro, exemplo:
+https://www.linkedin.com/posts/
+https://www.linkedin.com/posts/
+
+---
+
 ## 🛠️ Requisitos
 
 * [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download)
@@ -13,7 +48,7 @@ Este projeto automatiza a geração de comentários técnicos e profissionais no
 
 ---
 
-## ⚙️ Instalação
+## ⚙️ Instalação e Execução via Código Fonte
 
 1. Clone o repositório:
 
@@ -40,36 +75,11 @@ Se estiver usando PowerShell e tiver problemas, tente:
 powershell ./bin/Debug/net8.0/playwright.ps1 install
 ```
 
----
+4. Crie o arquivo `appsettings.json` com a chave da OpenAI e os prompts (detalhado mais acima)
 
-## 🔐 Configuração
+5. Crie o arquivo `linksWithPosts.xlsx` com os links dos posts a serem processados (detalhado mais acima)
 
-Crie um arquivo `appsettings.json` na raiz do projeto com o seguinte conteúdo:
-
-```json
-{
-  "OpenAI": {
-    "ApiKey": "sk-sua-chave-aqui",
-    "Model": "gpt-3.5-turbo", // ou "gpt-4" se quiser mais qualidade, com maior custo
-    "SystemPrompt": "You are a full stack software engineer with 4+ years of experience in .NET, 2+ years with React, and solid practice with Flutter in personal projects. You’ve built scalable APIs, worked with microservices, and applied clean architecture and clean code principles. Your comments are clear, respectful and add technical value.",
-    "UserPrompt": "This is the content of the LinkedIn post. Generate a short and professional comment in English (B2 level). Make it valuable to the author, technically relevant, and friendly — something that encourages professional conversation."
-  }
-}
-```
-
-> ⚠️ **Não envie esse arquivo para o repositório público.** Ele contém sua chave da OpenAI.
-
----
-
-## 📁 Estrutura da planilha de entrada
-
-Crie um arquivo chamado `linksWithPosts.xlsx` na pasta de execução APENAS com o link dos posts na coluna A, um abaixo do outro, exemplo:
-https://www.linkedin.com/posts/...
-https://www.linkedin.com/posts/...
-
----
-
-## ▶️ Executar
+6. Execute:
 
 ```bash
 dotnet run
@@ -79,10 +89,34 @@ dotnet run
 
 ## 📄 Resultado
 
-Será gerada uma planilha `respostasGeradas.xlsx` (ou `respostasGeradas_1.xlsx`, `respostasGeradas_2.xlsx`, etc.), com as seguintes colunas:
+Será gerada uma planilha `respostasGeradas.xlsx` (ou `respostasGeradas_1.xlsx`, etc.) com as colunas:
 
 | Link | Texto extraído | Resposta gerada |
 | ---- | -------------- | --------------- |
+
+---
+
+## 🚀 Executável pronto (.exe)
+
+Se quiser distribuir sem precisar instalar .NET:
+
+1. Gere o executável com:
+
+```bash
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o ./publish
+```
+
+2. Compartilhe o arquivo `LinkedInScraperOpenAI.exe` da pasta `/publish`
+
+3. Inclua junto o `appsettings.json` e `linksWithPosts.xlsx`
+
+4. Execute diretamente:
+
+```bash
+LinkedInScraperOpenAI.exe
+```
+
+> ⚠️ O navegador do Playwright será baixado na primeira execução.
 
 ---
 
@@ -97,11 +131,19 @@ Será gerada uma planilha `respostasGeradas.xlsx` (ou `respostasGeradas_1.xlsx`,
 
 ## 🛡️ Segurança
 
-* A API Key é lida do `appsettings.json`, que deve estar no `.gitignore`
-* O Playwright é executado em modo headless, sem exposição de interface
+* A chave da OpenAI é lida do `appsettings.json` (não comitada)
+* O navegador é executado em modo headless, sem exposição de interface
 
 ---
 
 ## 🤝 Contribuições
 
 Pull requests são bem-vindos. Vamos melhorar juntos!
+
+---
+
+## 🔎 Exemplo
+
+| Link                                                             | Texto extraído               | Resposta gerada                                   |
+| ---------------------------------------------------------------- | ---------------------------- | ------------------------------------------------- |
+| [https://linkedin.com/posts/abc](https://linkedin.com/posts/abc) | "Your dashboard is slow\..." | "Great insight! Modeling makes the difference..." |
