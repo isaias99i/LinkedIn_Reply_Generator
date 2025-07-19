@@ -30,6 +30,10 @@ Desktop.ini
 # Arquivos temporários de planilha
 ~$*
 
+# Arquivos de publicação
+publish/*
+publish.zip
+
 # Planilhas geradas
 respostasGeradas*.xlsx
 
