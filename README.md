@@ -56,7 +56,7 @@ Crie um arquivo chamado `appsettings.json` na mesma pasta do executável (ou na 
 ## 📁 Estrutura da planilha de entrada
 
 Crie um arquivo chamado `linksWithPosts.xlsx` na pasta de execução APENAS com o link dos posts na coluna A, um abaixo do outro, exemplo:
-https://www.linkedin.com/posts/
+https://www.linkedin.com/posts/\n
 https://www.linkedin.com/posts/
 
 ---
